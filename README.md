@@ -1,27 +1,115 @@
-# OsumiAngularTools
+# Osumi Angular Tools
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.12.
+Librería de componentes y servicios reutilizables. En esta librería se incluyen las siguientes funcionalidades:
 
-## Development server
+* `dialog`: Servicio para crear ventanas de diálogo (`alert`, `confirm` y `form`).
+* `overlay`: Servicio para crear ventanas modales en las que cargar componentes personalizados.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+NOTA: Para poder usar estos servicios es necesario usar `Angular 18.2+`, `Angular Material 18.2+`, `Angular CDK 18.2+` y `rxjs 7.8+`
 
-## Code scaffolding
+**dialog**
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Permite mostrar diálogos con mensajes personalizados:
 
-## Build
+**alert**
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Muestra un diálogo con un título (`title`) y un texto (`content`) personalizado. También permite personalizar el texto del botón "Continuar" (`ok`).
 
-## Running unit tests
+```typescript
+dialog: DialogService = inject(DialogService);
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+this.dialog.alert({
+  title: 'Datos guardados',
+  content:
+    'Los datos del cliente "' +
+    this.selectedClient.nombreApellidos +
+    '" han sido correctamente guardados.',
+  ok: 'Continuar',
+});
+```
 
-## Running end-to-end tests
+**confirm**
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Muestra un diálogo con un título (`title`) y texto (`content`) personalizables. Permite personalizar el texto de los botones "Continuar" (`ok`) y "Cancelar" (`cancel`).
 
-## Further help
+```typescript
+dialog: DialogService = inject(DialogService);
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+this.dialog.confirm({
+  title: 'Confirmar',
+  content:
+    '¿Estás seguro de querer borrar el cliente "' +
+    this.selectedClient.nombreApellidos +
+    '"?',
+  ok: 'Continuar',
+  cancel: 'Cancelar',
+})
+.subscribe((result) => {
+  if (result === true) {
+    this.confirmDeleteCliente();
+  }
+});
+```
+
+**form**
+
+Permite mostrar un diálogo con una serie de campos (`fields`), un pequeño formulario. Como en los casos anteriores se puede personalizar el título (`title`), el texto (`content`) y los botones "Continuar" (`ok`) y "Cancelar" (`cancel`).
+
+```typescript
+dialog: DialogService = inject(DialogService);
+
+this.dialog.form({
+  title: 'Introducir email',
+  content: 'Introduce el email del cliente',
+  ok: 'Continuar',
+  cancel: 'Cancelar',
+  fields: [{ title: 'Email', type: 'email', value: null }],
+})
+.subscribe((result: DialogOptions): void => {
+  if (result !== undefined) {
+    this.sendTicket(this.historicoVentasSelected.id, result[0].value);
+  }
+});
+```
+
+**overlay**
+
+Permite mostrar ventanas modales con componentes personalizados. Estos componentes luego pueden pasar datos de vuelta. Se incluye la interfaz `Modal` que se puede extender con campos personalizados para pasar información al modal que se muestra.
+
+```typescript
+// Componente que abre un modal
+export interface BuscadorModal extends Modal {
+  key: string;
+}
+
+os: OverlayService = inject(OverlayService);
+
+const modalBuscadorData: BuscadorModal = {
+  modalTitle: 'Buscador',
+  modalColor: 'blue',
+  css: 'modal-wide',
+  key: ev.key,
+};
+const dialog = this.os.open(BuscadorModalComponent, modalBuscadorData); // BuscadorModalComponent sería el componente a mostrar en el modal
+dialog.afterClosed$.subscribe((data): void => {
+  if (data.data !== null) {
+    console.log(data.data); // Resultado obtenido del modal
+  } else {
+    console.log('El modal se ha cerrado sin devolver datos.');
+  }
+});
+
+// Componente BuscadorModalComponent abierto en el modal
+export default class BuscadorModalComponent implements OnInit {
+  private customOverlayRef: CustomOverlayRef<null, { key: string }> =
+    inject(CustomOverlayRef); // Referencia de la que obtener los datos pasados al modal y para pasarle datos de vuelta
+
+  ngOnInit(): void {
+    this.searchName = this.customOverlayRef.data.key; // Propiedad pasada al modal
+  }
+
+  selectBuscadorResultadosRow(row: ArticuloBuscador): void {
+    this.customOverlayRef.close(row.localizador); // Cerrar el modal devolviendo datos al componente padre
+  }
+}
+```
