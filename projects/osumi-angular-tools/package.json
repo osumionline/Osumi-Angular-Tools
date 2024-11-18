@@ -23,5 +23,8 @@
     "tslib": "^2.3.0"
   },
   "sideEffects": false,
-  "private": false
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  }
 }
