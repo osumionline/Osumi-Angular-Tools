@@ -1,13 +1,11 @@
 import { Overlay, OverlayConfig } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { inject, Injectable, Injector, Type } from '@angular/core';
+import OverlayComponent from '../components/overlay/overlay.component';
 import { Modal } from '../interfaces/modals.interface';
 import CustomOverlayRef from '../model/custom-overlay-ref.model';
-import OverlayComponent from '../components/overlay/overlay.component';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable({ providedIn: 'root' })
 export default class OverlayService {
   private overlay: Overlay = inject(Overlay);
   private injector: Injector = inject(Injector);

@@ -1,12 +1,12 @@
 {
   "name": "@osumi/angular-tools",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Tools to be used on Angular projects.",
   "author": "Iñigo Gorosabel",
-	"license": "MIT",
+  "license": "MIT",
   "bugs": {
-		"url": "https://github.com/osumionline/Osumi-Angular-Tools/issues"
-	},
+    "url": "https://github.com/osumionline/Osumi-Angular-Tools/issues"
+  },
   "homepage": "https://github.com/osumionline/Osumi-Angular-Tools#readme",
   "main": "fesm2022/osumi-angular-tools.mjs",
   "module": "fesm2022/osumi-angular-tools.mjs",

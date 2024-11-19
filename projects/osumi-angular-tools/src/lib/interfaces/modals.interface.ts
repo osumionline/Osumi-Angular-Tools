@@ -6,6 +6,6 @@ export interface Modal {
 }
 
 export interface OverlayCloseEvent<R> {
-  type: "backdropClick" | "close";
+  type: 'backdropClick' | 'close';
   data: R;
 }
