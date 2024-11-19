@@ -22,7 +22,7 @@ import { DialogField } from '../../../interfaces/dialogs.interface';
   standalone: true,
   selector: 'oat-form-dialog',
   templateUrl: './form-dialog.component.html',
-  styleUrl: '../../../../../styles/dialogs.scss',
+  styleUrl: './form-dialog.component.scss',
   imports: [
     FormsModule,
     MatDialogTitle,

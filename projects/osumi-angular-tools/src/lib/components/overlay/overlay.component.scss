@@ -8,7 +8,7 @@
 
 .modal {
 	border-radius: 6px;
-	box-shadow: 4px 4px 5px 0px var(--modal-bg-color);
+	box-shadow: 4px 4px 5px 0px var(--modals-bg-color);
 
 	&__header {
 		border-top-left-radius: 6px;
@@ -19,7 +19,7 @@
 		padding: 0 20px;
 		height: 48px;
 		font-size: 24px;
-		background-color: var(--color-blue);
+		background-color: var(--modals-main-color);
 		color: white;
 
 		.title {}
@@ -29,27 +29,27 @@
 		}
 
 		&--blue {
-			background-color: var(--main-color);
+			background-color: var(--modals-color-blue);
 		}
 
 		&--yellow {
-			background-color: var(--color-yellow);
-			color: var(--color-black);
+			background-color: var(--modals-color-yellow);
+			color: var(--modals-color-black);
 
 			&>.btn-close {
-				color: var(--color-black);
+				color: var(--modals-color-black);
 			}
 		}
 
 		&--red {
-			background-color: var(--color-red);
+			background-color: var(--modals-color-red);
 		}
 	}
 
 	&__content {
 		padding: 20px;
 		border-bottom-left-radius: 6px;
-		background-color: var(--color-white);
+		background-color: var(--modals-color-white);
 		border-bottom-right-radius: 6px;
 		height: calc(100% - 48px);
 		overflow-y: auto;

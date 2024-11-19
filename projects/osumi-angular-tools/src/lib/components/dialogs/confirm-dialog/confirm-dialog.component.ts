@@ -18,7 +18,7 @@ import {
   standalone: true,
   selector: 'oat-confirm-dialog',
   templateUrl: './confirm-dialog.component.html',
-  styleUrl: '../../../../../styles/dialogs.scss',
+  styleUrl: './confirm-dialog.component.scss',
   imports: [
     MatDialogTitle,
     MatDialogContent,
