@@ -9,7 +9,7 @@
 		}
 	</div>
 
-	<div class="modal__content">
+	<div [class]="'modal__content ' + inputData.contentCss">
 		<ng-container *ngComponentOutlet="content"></ng-container>
 	</div>
 </div>
