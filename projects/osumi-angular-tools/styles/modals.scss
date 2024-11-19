@@ -7,3 +7,15 @@
     --modals-color-red: #ff3333;
     --modals-color-white: #fff;
 }
+
+.modals-background {
+    background-color: var(--modals-bg-color);
+}
+
+.modals-panel {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    min-width: 600px;
+}

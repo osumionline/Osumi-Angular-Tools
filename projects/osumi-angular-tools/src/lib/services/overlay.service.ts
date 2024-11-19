@@ -16,13 +16,11 @@ export class OverlayService {
     panelCssClasses: string[] = [],
     closeOnBackdropCLick: boolean = true
   ): CustomOverlayRef<R> {
-    const _panelCssClasses: string[] = ['modal-panel', 'is-active'].concat(
-      panelCssClasses
-    );
+    const _panelCssClasses: string[] = ['modals-panel'].concat(panelCssClasses);
     const config = new OverlayConfig({
       hasBackdrop: true,
       panelClass: _panelCssClasses,
-      backdropClass: 'modal-background',
+      backdropClass: 'modals-background',
       width: '100%',
       height: '100%',
     });
