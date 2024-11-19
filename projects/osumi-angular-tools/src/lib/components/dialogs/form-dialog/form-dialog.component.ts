@@ -14,7 +14,7 @@ import { DialogField } from '../../../interfaces/dialogs.interface';
 
 @Component({
   standalone: true,
-  selector: 'o-form-dialog',
+  selector: 'oat-form-dialog',
   templateUrl: './form-dialog.component.html',
   styleUrls: ['./form-dialog.component.scss'],
   imports: [
@@ -30,7 +30,7 @@ import { DialogField } from '../../../interfaces/dialogs.interface';
     MatButton,
   ],
 })
-export default class FormDialogComponent {
+export class FormDialogComponent {
   public dialogRef: MatDialogRef<FormDialogComponent> = inject(MatDialogRef);
 
   public title: WritableSignal<string> = signal<string>('');

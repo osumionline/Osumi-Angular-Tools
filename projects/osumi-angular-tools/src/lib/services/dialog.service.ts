@@ -1,13 +1,13 @@
 import { inject, Injectable } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
-import AlertDialogComponent from '../components/dialogs/alert-dialog/alert-dialog.component';
-import ConfirmDialogComponent from '../components/dialogs/confirm-dialog/confirm-dialog.component';
-import FormDialogComponent from '../components/dialogs/form-dialog/form-dialog.component';
+import { AlertDialogComponent } from '../components/dialogs/alert-dialog/alert-dialog.component';
+import { ConfirmDialogComponent } from '../components/dialogs/confirm-dialog/confirm-dialog.component';
+import { FormDialogComponent } from '../components/dialogs/form-dialog/form-dialog.component';
 import { DialogOptions } from '../interfaces/dialogs.interface';
 
 @Injectable({ providedIn: 'root' })
-export default class DialogService {
+export class DialogService {
   private dialog: MatDialog = inject(MatDialog);
 
   public confirm(options: DialogOptions): Observable<boolean> {

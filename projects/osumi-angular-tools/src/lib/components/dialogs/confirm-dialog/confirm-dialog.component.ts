@@ -9,11 +9,11 @@ import {
 
 @Component({
   standalone: true,
-  selector: 'o-confirm-dialog',
+  selector: 'oat-confirm-dialog',
   templateUrl: './confirm-dialog.component.html',
   imports: [MatDialogTitle, MatDialogContent, MatDialogActions, MatButton],
 })
-export default class ConfirmDialogComponent {
+export class ConfirmDialogComponent {
   public dialogRef: MatDialogRef<ConfirmDialogComponent> = inject(MatDialogRef);
 
   public title: WritableSignal<string> = signal<string>('');

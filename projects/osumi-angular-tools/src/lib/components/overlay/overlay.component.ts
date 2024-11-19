@@ -2,16 +2,16 @@ import { NgComponentOutlet } from '@angular/common';
 import { Component, inject, OnInit, Renderer2, Type } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { Modal } from '../../interfaces/modals.interface';
-import CustomOverlayRef from '../../model/custom-overlay-ref.model';
+import { CustomOverlayRef } from '../../model/custom-overlay-ref.model';
 
 @Component({
   standalone: true,
-  selector: 'o-overlay',
+  selector: 'oat-overlay',
   templateUrl: './overlay.component.html',
   styleUrls: ['./overlay.component.scss'],
   imports: [MatIcon, NgComponentOutlet],
 })
-export default class OverlayComponent implements OnInit {
+export class OverlayComponent implements OnInit {
   private customOverlayRef: CustomOverlayRef<any, Modal> =
     inject(CustomOverlayRef);
   private renderer: Renderer2 = inject(Renderer2);

@@ -9,11 +9,11 @@ import {
 
 @Component({
   standalone: true,
-  selector: 'o-alert-dialog',
+  selector: 'oat-alert-dialog',
   templateUrl: './alert-dialog.component.html',
   imports: [MatDialogTitle, MatDialogContent, MatDialogActions, MatButton],
 })
-export default class AlertDialogComponent {
+export class AlertDialogComponent {
   public dialogRef: MatDialogRef<AlertDialogComponent> = inject(MatDialogRef);
 
   public title: WritableSignal<string> = signal<string>('');

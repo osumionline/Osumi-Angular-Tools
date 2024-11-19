@@ -4,7 +4,7 @@ import { Subject } from 'rxjs';
 import { OverlayCloseEvent } from '../interfaces/modals.interface';
 
 // R = Response Data Type, T = Data passed to Modal Type
-export default class CustomOverlayRef<R = any, T = any> {
+export class CustomOverlayRef<R = any, T = any> {
   afterClosed$ = new Subject<OverlayCloseEvent<R | null>>();
 
   constructor(
