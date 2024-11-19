@@ -2,14 +2,33 @@
 
 Librería de componentes y servicios reutilizables. En esta librería se incluyen las siguientes funcionalidades:
 
-* `dialog`: Servicio para crear ventanas de diálogo (`alert`, `confirm` y `form`).
-* `overlay`: Servicio para crear ventanas modales en las que cargar componentes personalizados.
+- `dialog`: Servicio para crear ventanas de diálogo (`alert`, `confirm` y `form`).
+- `overlay`: Servicio para crear ventanas modales en las que cargar componentes personalizados.
 
 NOTA: Para poder usar estos servicios es necesario usar `Angular 18.2+`, `Angular Material 18.2+`, `Angular CDK 18.2+` y `rxjs 7.8+`
 
 **dialog**
 
-Permite mostrar diálogos con mensajes personalizados:
+Permite mostrar diálogos con mensajes personalizados.
+
+NOTA: Los diálogos incluyen una serie de estilos por defecto. Para poder usarlos es necesario añadirlos en el archivo `angular.json` de la siguiente manera:
+
+```json
+"styles": [
+  "@angular/material/prebuilt-themes/azure-blue.css",
+  "src/styles.scss",
+  "@osumi/angular-tools/lib/styles/dialogs.scss"
+],
+```
+
+Estos estilos por defecto luego se pueden sobrescribir usando variables CSS:
+
+```css
+:root {
+  --dialogs-color-warn: #ba1a1a;
+  --dialogs-color-white: #fff;
+}
+```
 
 **alert**
 
@@ -19,12 +38,9 @@ Muestra un diálogo con un título (`title`) y un texto (`content`) personalizad
 dialog: DialogService = inject(DialogService);
 
 this.dialog.alert({
-  title: 'Datos guardados',
-  content:
-    'Los datos del cliente "' +
-    this.selectedClient.nombreApellidos +
-    '" han sido correctamente guardados.',
-  ok: 'Continuar',
+  title: "Datos guardados",
+  content: 'Los datos del cliente "' + this.selectedClient.nombreApellidos + '" han sido correctamente guardados.',
+  ok: "Continuar",
 });
 ```
 
@@ -35,20 +51,18 @@ Muestra un diálogo con un título (`title`) y texto (`content`) personalizables
 ```typescript
 dialog: DialogService = inject(DialogService);
 
-this.dialog.confirm({
-  title: 'Confirmar',
-  content:
-    '¿Estás seguro de querer borrar el cliente "' +
-    this.selectedClient.nombreApellidos +
-    '"?',
-  ok: 'Continuar',
-  cancel: 'Cancelar',
-})
-.subscribe((result) => {
-  if (result === true) {
-    this.confirmDeleteCliente();
-  }
-});
+this.dialog
+  .confirm({
+    title: "Confirmar",
+    content: '¿Estás seguro de querer borrar el cliente "' + this.selectedClient.nombreApellidos + '"?',
+    ok: "Continuar",
+    cancel: "Cancelar",
+  })
+  .subscribe((result) => {
+    if (result === true) {
+      this.confirmDeleteCliente();
+    }
+  });
 ```
 
 **form**
@@ -58,18 +72,19 @@ Permite mostrar un diálogo con una serie de campos (`fields`), un pequeño form
 ```typescript
 dialog: DialogService = inject(DialogService);
 
-this.dialog.form({
-  title: 'Introducir email',
-  content: 'Introduce el email del cliente',
-  ok: 'Continuar',
-  cancel: 'Cancelar',
-  fields: [{ title: 'Email', type: 'email', value: null }],
-})
-.subscribe((result: DialogOptions): void => {
-  if (result !== undefined) {
-    this.sendTicket(this.historicoVentasSelected.id, result[0].value);
-  }
-});
+this.dialog
+  .form({
+    title: "Introducir email",
+    content: "Introduce el email del cliente",
+    ok: "Continuar",
+    cancel: "Cancelar",
+    fields: [{ title: "Email", type: "email", value: null }],
+  })
+  .subscribe((result: DialogOptions): void => {
+    if (result !== undefined) {
+      this.sendTicket(this.historicoVentasSelected.id, result[0].value);
+    }
+  });
 ```
 
 **overlay**
@@ -85,9 +100,9 @@ export interface BuscadorModal extends Modal {
 os: OverlayService = inject(OverlayService);
 
 const modalBuscadorData: BuscadorModal = {
-  modalTitle: 'Buscador',
-  modalColor: 'blue',
-  css: 'modal-wide',
+  modalTitle: "Buscador",
+  modalColor: "blue",
+  css: "modal-wide",
   key: ev.key,
 };
 const dialog = this.os.open(BuscadorModalComponent, modalBuscadorData); // BuscadorModalComponent sería el componente a mostrar en el modal
@@ -95,14 +110,13 @@ dialog.afterClosed$.subscribe((data): void => {
   if (data.data !== null) {
     console.log(data.data); // Resultado obtenido del modal
   } else {
-    console.log('El modal se ha cerrado sin devolver datos.');
+    console.log("El modal se ha cerrado sin devolver datos.");
   }
 });
 
 // Componente BuscadorModalComponent abierto en el modal
 export default class BuscadorModalComponent implements OnInit {
-  private customOverlayRef: CustomOverlayRef<null, { key: string }> =
-    inject(CustomOverlayRef); // Referencia de la que obtener los datos pasados al modal y para pasarle datos de vuelta
+  private customOverlayRef: CustomOverlayRef<null, { key: string }> = inject(CustomOverlayRef); // Referencia de la que obtener los datos pasados al modal y para pasarle datos de vuelta
 
   ngOnInit(): void {
     this.searchName = this.customOverlayRef.data.key; // Propiedad pasada al modal

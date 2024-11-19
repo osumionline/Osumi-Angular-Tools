@@ -4,14 +4,11 @@
 </div>
 <div mat-dialog-actions
 	 align="end">
-	@if (cancel() !== '') {
 	<button type="button"
 			mat-button
 			(click)="dialogRef.close()">{{ cancel() }}</button>
-	}
 	<button type="button"
 			mat-flat-button
-			color="primary"
-			(click)="dialogRef.close(true)"
-			cdkFocusInitial>{{ ok() }}</button>
+			[ngClass]="{'dialogs-warn': warn()}"
+			(click)="dialogRef.close(true)">{{ ok() }}</button>
 </div>

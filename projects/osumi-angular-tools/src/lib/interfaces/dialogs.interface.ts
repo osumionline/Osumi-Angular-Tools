@@ -8,7 +8,8 @@ export interface DialogField {
 export interface DialogOptions {
   title: string;
   content: string;
-  fields?: DialogField[];
-  ok: string;
-  cancel?: string;
+  warn?: boolean;
+  fields?: DialogField[] | undefined;
+  ok?: string | undefined;
+  cancel?: string | undefined;
 }

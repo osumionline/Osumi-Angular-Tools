@@ -17,7 +17,12 @@ export class DialogService {
 
     dialogRef.componentInstance.title.set(options.title);
     dialogRef.componentInstance.content.set(options.content);
-    dialogRef.componentInstance.ok.set(options.ok);
+    if (options.warn !== undefined) {
+      dialogRef.componentInstance.warn.set(options.warn);
+    }
+    if (options.ok !== undefined) {
+      dialogRef.componentInstance.ok.set(options.ok);
+    }
     if (options.cancel !== undefined) {
       dialogRef.componentInstance.cancel.set(options.cancel);
     }
@@ -31,7 +36,9 @@ export class DialogService {
 
     dialogRef.componentInstance.title.set(options.title);
     dialogRef.componentInstance.content.set(options.content);
-    dialogRef.componentInstance.ok.set(options.ok);
+    if (options.ok !== undefined) {
+      dialogRef.componentInstance.ok.set(options.ok);
+    }
 
     return dialogRef.afterClosed();
   }
@@ -42,7 +49,9 @@ export class DialogService {
 
     dialogRef.componentInstance.title.set(options.title);
     dialogRef.componentInstance.content.set(options.content);
-    dialogRef.componentInstance.ok.set(options.ok);
+    if (options.ok !== undefined) {
+      dialogRef.componentInstance.ok.set(options.ok);
+    }
     if (options.cancel !== undefined) {
       dialogRef.componentInstance.cancel.set(options.cancel);
     }

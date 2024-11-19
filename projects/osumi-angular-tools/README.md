@@ -9,7 +9,26 @@ NOTA: Para poder usar estos servicios es necesario usar `Angular 18.2+`, `Angula
 
 **dialog**
 
-Permite mostrar diálogos con mensajes personalizados:
+Permite mostrar diálogos con mensajes personalizados.
+
+NOTA: Los diálogos incluyen una serie de estilos por defecto. Para poder usarlos es necesario añadirlos en el archivo `angular.json` de la siguiente manera:
+
+```json
+"styles": [
+  "@angular/material/prebuilt-themes/azure-blue.css",
+  "src/styles.scss",
+  "@osumi/angular-tools/lib/styles/dialogs.scss"
+],
+```
+
+Estos estilos por defecto luego se pueden sobrescribir usando variables CSS:
+
+```css
+:root {
+  --dialogs-color-warn: #ba1a1a;
+  --dialogs-color-white: #fff;
+}
+```
 
 **alert**
 

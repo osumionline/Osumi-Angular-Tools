@@ -18,5 +18,5 @@ export class AlertDialogComponent {
 
   public title: WritableSignal<string> = signal<string>('');
   public content: WritableSignal<string> = signal<string>('');
-  public ok: WritableSignal<string> = signal<string>('');
+  public ok: WritableSignal<string> = signal<string>('Continuar');
 }

@@ -1,0 +1,13 @@
+:root {
+    --dialogs-color-warn: #ba1a1a;
+    --dialogs-color-white: #fff;
+}
+
+.dialogs-warn {
+    background-color: var(--dialogs-color-warn);
+    color: var(--dialogs-color-white);
+}
+
+.dialogs-full-width {
+    width: 100%;
+}
