@@ -15,7 +15,6 @@ import {
 } from '@angular/material/dialog';
 
 @Component({
-  standalone: true,
   selector: 'oat-confirm-dialog',
   templateUrl: './confirm-dialog.component.html',
   styleUrl: './confirm-dialog.component.scss',

@@ -19,7 +19,6 @@ import { MatInput } from '@angular/material/input';
 import { DialogField } from '../../../interfaces/dialogs.interface';
 
 @Component({
-  standalone: true,
   selector: 'oat-form-dialog',
   templateUrl: './form-dialog.component.html',
   styleUrl: './form-dialog.component.scss',

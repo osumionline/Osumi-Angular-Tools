@@ -5,7 +5,6 @@ import { Modal } from '../../interfaces/modals.interface';
 import { CustomOverlayRef } from '../../model/custom-overlay-ref.model';
 
 @Component({
-  standalone: true,
   selector: 'oat-overlay',
   templateUrl: './overlay.component.html',
   styleUrls: ['./overlay.component.scss'],

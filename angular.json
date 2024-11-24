@@ -12,7 +12,8 @@
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/osumi-angular-tools/ng-package.json"
+            "project": "projects/osumi-angular-tools/ng-package.json",
+            "tsConfig": "projects/osumi-angular-tools/tsconfig.schematics.json"
           },
           "configurations": {
             "production": {
@@ -28,10 +29,7 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "tsConfig": "projects/osumi-angular-tools/tsconfig.spec.json",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ]
+            "polyfills": ["zone.js", "zone.js/testing"]
           }
         }
       }
