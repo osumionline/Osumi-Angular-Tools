@@ -7,7 +7,13 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "build:library": "cd projects\\osumi-angular-tools && npm run build",
+    "build:schematics": "cd projects\\osumi-angular-tools && tsc -p tsconfig.schematics.json",
+    "copy-schematics-json": "cd projects\\osumi-angular-tools && copy schematics\\collection.json dist\\schematics && copy schematics\\ng-add\\schema.json dist\\schematics\\ng-add && copy schematics\\ng-update\\schema.json dist\\schematics\\ng-update",
+    "copy-schematics": "xcopy projects\\osumi-angular-tools\\dist\\schematics dist\\osumi-angular-tools\\schematics /e /y /i",
+    "clean": "cd projects\\osumi-angular-tools && rmdir /s /q dist",
+    "build-and-package": "npm run build:library && npm run build:schematics && npm run copy-schematics-json && npm run copy-schematics && npm run clean"
   },
   "private": true,
   "dependencies": {
@@ -27,6 +33,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^19.0.4",
+    "@angular-devkit/schematics": "^19.0.4",
     "@angular/cli": "^19.0.4",
     "@angular/compiler-cli": "^19.0.3",
     "@types/jasmine": "~5.1.0",

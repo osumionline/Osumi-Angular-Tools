@@ -1,14 +1,16 @@
 {
-  "extends": "./tsconfig.json",
+  "extends": "./tsconfig.lib.json",
   "compilerOptions": {
     "outDir": "./dist/schematics",
     "module": "ES2022",
     "target": "ES2022",
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "declaration": true,
+    "declarationMap": true
   },
-  "include": ["src/**/*.ts", "schematics/**/*.ts"]
+  "include": ["schematics/**/*.ts"]
 }
