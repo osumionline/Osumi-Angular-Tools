@@ -4,6 +4,9 @@
   "newProjectRoot": "projects",
   "projects": {
     "osumi-angular-tools": {
+      "schematics": {
+        "tsConfig": "tsconfig.schematics.json"
+      },
       "projectType": "library",
       "root": "projects/osumi-angular-tools",
       "sourceRoot": "projects/osumi-angular-tools/src",

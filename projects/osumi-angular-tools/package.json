@@ -1,13 +1,11 @@
 {
   "name": "@osumi/angular-tools",
-  "version": "1.0.11",
+  "version": "1.0.15",
   "description": "Tools to be used on Angular projects.",
   "author": "Iñigo Gorosabel",
   "license": "MIT",
   "scripts": {
-    "build": "ng build",
-    "ng-add": "node schematics/ng-add/index.js",
-    "ng-update": "node schematics/update/index.js"
+    "build": "ng build"
   },
   "bugs": {
     "url": "https://github.com/osumionline/Osumi-Angular-Tools/issues"
@@ -32,5 +30,9 @@
   "private": false,
   "publishConfig": {
     "access": "public"
+  },
+  "schematics": "./schematics/collection.json",
+  "ng-update": {
+    "migrations": "./schematics/migrations.json"
   }
 }
