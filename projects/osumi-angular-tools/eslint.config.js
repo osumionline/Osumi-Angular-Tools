@@ -7,11 +7,12 @@ module.exports = tseslint.config(
   {
     files: ["**/*.ts"],
     rules: {
+      "@typescript-eslint/no-inferrable-types": "off",
       "@angular-eslint/directive-selector": [
         "error",
         {
           type: "attribute",
-          prefix: "lib",
+          prefix: "oat",
           style: "camelCase",
         },
       ],
@@ -19,7 +20,7 @@ module.exports = tseslint.config(
         "error",
         {
           type: "element",
-          prefix: "lib",
+          prefix: "oat",
           style: "kebab-case",
         },
       ],

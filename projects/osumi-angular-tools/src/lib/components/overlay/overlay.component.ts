@@ -1,5 +1,6 @@
 import { NgComponentOutlet } from '@angular/common';
 import { Component, inject, OnInit, Renderer2, Type } from '@angular/core';
+import { MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { Modal } from '../../interfaces/modals.interface';
 import { CustomOverlayRef } from '../../model/custom-overlay-ref.model';
@@ -8,7 +9,7 @@ import { CustomOverlayRef } from '../../model/custom-overlay-ref.model';
   selector: 'oat-overlay',
   templateUrl: './overlay.component.html',
   styleUrls: ['./overlay.component.scss'],
-  imports: [MatIcon, NgComponentOutlet],
+  imports: [MatIcon, MatIconButton, NgComponentOutlet],
 })
 export class OverlayComponent implements OnInit {
   private customOverlayRef: CustomOverlayRef<any, Modal> =

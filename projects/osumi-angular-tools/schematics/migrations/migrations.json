@@ -25,6 +25,11 @@
       "description": "Primera versión estable con soporte para ng-add y ng-update",
       "version": "1.1.0",
       "factory": "./noop/index#noop"
+    },
+    "osumi-angular-tools-1-1-1": {
+      "description": "Correcciones de ESLint y primera versión de Swipe",
+      "version": "1.1.1",
+      "factory": "./noop/index#noop"
     }
   }
 }
