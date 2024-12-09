@@ -30,6 +30,11 @@
       "description": "Correcciones de ESLint y primera versión de Swipe",
       "version": "1.1.1",
       "factory": "./noop/index#noop"
+    },
+    "osumi-angular-tools-1-1-2": {
+      "description": "Swipe simplificado",
+      "version": "1.1.2",
+      "factory": "./noop/index#noop"
     }
   }
 }

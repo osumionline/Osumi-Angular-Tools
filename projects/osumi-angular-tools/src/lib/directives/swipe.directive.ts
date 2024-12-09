@@ -2,40 +2,52 @@ import {
   Directive,
   ElementRef,
   inject,
-  NgZone,
-  OnDestroy,
-  OnInit,
   output,
   OutputEmitterRef,
 } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { SwipeEvent } from '../interfaces/swipe.interface';
-import { createSwipeSubscription } from '../swipe-core/swipe-core';
+import { SwipeData } from '../interfaces/swipe.interface';
 
 @Directive({
   selector: '[oatSwipe]',
+  host: {
+    '(touchstart)': 'onTouchStart($event)',
+    '(touchend)': 'onTouchEnd($event)',
+    '(mousedown)': 'onMouseDown($event)',
+    '(mouseup)': 'onMouseUp($event)',
+  },
 })
-export class SwipeDirective implements OnInit, OnDestroy {
-  private elementRef: ElementRef = inject(ElementRef);
-  private zone: NgZone = inject(NgZone);
-  private swipeSubscription: Subscription | undefined;
+export class SwipeDirective {
+  private el: ElementRef = inject(ElementRef);
+  swipeEnd: OutputEmitterRef<SwipeData> = output<SwipeData>();
 
-  swipeMove: OutputEmitterRef<SwipeEvent> = output<SwipeEvent>();
-  swipeEnd: OutputEmitterRef<SwipeEvent> = output<SwipeEvent>();
+  private startX: number = 0;
+  private startY: number = 0;
 
-  ngOnInit(): void {
-    this.zone.runOutsideAngular((): void => {
-      this.swipeSubscription = createSwipeSubscription({
-        domElement: this.elementRef.nativeElement,
-        onSwipeMove: (swipeMoveEvent: SwipeEvent): void =>
-          this.swipeMove.emit(swipeMoveEvent),
-        onSwipeEnd: (swipeEndEvent: SwipeEvent): void =>
-          this.swipeEnd.emit(swipeEndEvent),
-      });
-    });
+  onTouchStart(event: TouchEvent): void {
+    this.startX = event.touches[0].clientX;
+    this.startY = event.touches[0].clientY;
   }
 
-  ngOnDestroy(): void {
-    this.swipeSubscription?.unsubscribe?.();
+  onTouchEnd(event: TouchEvent): void {
+    const endX: number = event.changedTouches[0].clientX;
+    const endY: number = event.changedTouches[0].clientY;
+    const deltaX: number = endX - this.startX;
+    const deltaY: number = endY - this.startY;
+
+    this.swipeEnd.emit({ x: deltaX, y: deltaY });
+  }
+
+  onMouseDown(event: MouseEvent): void {
+    this.startX = event.clientX;
+    this.startY = event.clientY;
+  }
+
+  onMouseUp(event: MouseEvent): void {
+    const endX: number = event.clientX;
+    const endY: number = event.clientY;
+    const deltaX: number = endX - this.startX;
+    const deltaY: number = endY - this.startY;
+
+    this.swipeEnd.emit({ x: deltaX, y: deltaY });
   }
 }

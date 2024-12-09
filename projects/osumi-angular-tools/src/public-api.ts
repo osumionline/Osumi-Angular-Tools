@@ -12,4 +12,3 @@ export * from './lib/interfaces/swipe.interface';
 export * from './lib/model/custom-overlay-ref.model';
 export * from './lib/services/dialog.service';
 export * from './lib/services/overlay.service';
-export * from './lib/swipe-core/swipe-core';
