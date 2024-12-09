@@ -35,6 +35,11 @@
       "description": "Swipe simplificado",
       "version": "1.1.2",
       "factory": "./noop/index#noop"
+    },
+    "osumi-angular-tools-1-1-3": {
+      "description": "Pruebas para propagación de eventos en Swipe",
+      "version": "1.1.3",
+      "factory": "./noop/index#noop"
     }
   }
 }
