@@ -1,0 +1,10 @@
+{
+  "$schema": "../../../../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "osumi-angular-tools-1-0-15": {
+      "description": "Pruebas de ng-update",
+      "version": "1.0.15",
+      "factory": "./noop/index"
+    }
+  }
+}
