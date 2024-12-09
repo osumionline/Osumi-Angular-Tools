@@ -4,7 +4,27 @@
     "osumi-angular-tools-1-0-15": {
       "description": "Pruebas de ng-update",
       "version": "1.0.15",
-      "factory": "./noop/index"
+      "factory": "./noop/index#noop"
+    },
+    "osumi-angular-tools-1-0-16": {
+      "description": "Pruebas de ng-update 1.0.16",
+      "version": "1.0.16",
+      "factory": "./noop/index#noop"
+    },
+    "osumi-angular-tools-1-0-17": {
+      "description": "Pruebas de ng-update 1.0.17",
+      "version": "1.0.17",
+      "factory": "./noop/index#noop"
+    },
+    "osumi-angular-tools-1-0-18": {
+      "description": "Pruebas de ng-update 1.0.18",
+      "version": "1.0.18",
+      "factory": "./noop/index#noop"
+    },
+    "osumi-angular-tools-1-1-0": {
+      "description": "Primera versión estable con soporte para ng-add y ng-update",
+      "version": "1.1.0",
+      "factory": "./noop/index#noop"
     }
   }
 }
