@@ -3,6 +3,7 @@ export interface DialogField {
   type: string;
   value: string;
   hint?: string;
+  required?: boolean;
 }
 
 export interface DialogOptions {

@@ -44,4 +44,12 @@ export class FormDialogComponent {
   public fields: WritableSignal<DialogField[]> = signal<DialogField[]>([]);
   public ok: WritableSignal<string> = signal<string>('Continuar');
   public cancel: WritableSignal<string> = signal<string>('Cancelar');
+
+  isFormValid(): boolean {
+    return this.fields().every((field: DialogField): boolean => {
+      return (
+        !field.required || Boolean(field.value && field.value.trim() !== '')
+      );
+    });
+  }
 }

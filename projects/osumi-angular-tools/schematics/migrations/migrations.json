@@ -50,6 +50,11 @@
       "description": "Corrección en iconos de cabeceras de modales",
       "version": "1.1.5",
       "factory": "./noop/index#noop"
+    },
+    "osumi-angular-tools-1-1-6": {
+      "description": "Corrección en resultado de diálogos con formulario y opción required",
+      "version": "1.1.5",
+      "factory": "./noop/index#noop"
     }
   }
 }
