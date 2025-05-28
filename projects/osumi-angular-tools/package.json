@@ -1,6 +1,6 @@
 {
   "name": "@osumi/angular-tools",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Tools to be used on Angular projects.",
   "author": "Iñigo Gorosabel",
   "license": "MIT",
