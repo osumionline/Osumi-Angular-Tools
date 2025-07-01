@@ -4,9 +4,6 @@
   "description": "Tools to be used on Angular projects.",
   "author": "Iñigo Gorosabel",
   "license": "MIT",
-  "scripts": {
-    "build": "ng build"
-  },
   "bugs": {
     "url": "https://github.com/osumionline/Osumi-Angular-Tools/issues"
   },
