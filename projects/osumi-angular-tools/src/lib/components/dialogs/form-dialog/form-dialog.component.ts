@@ -18,6 +18,13 @@ import { MatFormField, MatHint, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { DialogField } from '../../../interfaces/dialogs.interface';
 
+/**
+ * Componente para mostrar un diálogo con un formulario.
+ *
+ * Permite mostrar un mensaje de confirmación con un título, contenido y y un formulario personalizable.
+ *
+ * @returns Devuelve mediante un observable la notificación de cierre del diálogo con los datos del formulario.
+ */
 @Component({
   selector: 'oat-form-dialog',
   templateUrl: './form-dialog.component.html',
@@ -45,6 +52,11 @@ export class FormDialogComponent {
   public ok: WritableSignal<string> = signal<string>('Continuar');
   public cancel: WritableSignal<string> = signal<string>('Cancelar');
 
+  /**
+   * Método para validar el formulario.
+   * Comprueba si todos los campos requeridos tienen un valor no vacío.
+   * @returns Devuelve true si el formulario es válido, false en caso contrario.
+   */
   isFormValid(): boolean {
     return this.fields().every((field: DialogField): boolean => {
       return (

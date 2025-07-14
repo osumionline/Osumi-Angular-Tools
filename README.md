@@ -25,8 +25,8 @@ Estos estilos por defecto luego se pueden sobrescribir usando variables CSS:
 
 ```css
 :root {
-  --dialogs-color-warn: #ba1a1a;
-  --dialogs-color-white: #fff;
+  --oat-dialogs-color-warn: #ba1a1a;
+  --oat-dialogs-color-white: #fff;
 }
 ```
 

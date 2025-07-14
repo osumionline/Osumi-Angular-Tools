@@ -5,6 +5,11 @@ import { MatIcon } from '@angular/material/icon';
 import { Modal } from '../../interfaces/modals.interface';
 import { CustomOverlayRef } from '../../model/custom-overlay-ref.model';
 
+/**
+ * Componente para mostrar un componente personalizado en una ventana modal.
+ *
+ * @returns Devuelve mediante un observable la notificación de cierre del modal.
+ */
 @Component({
   selector: 'oat-overlay',
   templateUrl: './overlay.component.html',

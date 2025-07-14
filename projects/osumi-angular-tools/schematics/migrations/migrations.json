@@ -55,6 +55,16 @@
       "description": "Corrección en resultado de diálogos con formulario y opción required",
       "version": "1.1.5",
       "factory": "./noop/index#noop"
+    },
+    "osumi-angular-tools-1-2-2": {
+      "description": "Refactorización de variables CSS para evitar colisiones y documentación de todos los componentes, métodos y servicios",
+      "version": "1.2.2",
+      "factory": "./noop/index#noop"
+    },
+    "osumi-angular-tools-1-2-3": {
+      "description": "Corrección en diálogos de tipo formulario",
+      "version": "1.2.3",
+      "factory": "./noop/index#noop"
     }
   }
 }

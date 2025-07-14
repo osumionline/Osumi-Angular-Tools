@@ -5,11 +5,22 @@ import { OverlayComponent } from '../components/overlay/overlay.component';
 import { Modal } from '../interfaces/modals.interface';
 import { CustomOverlayRef } from '../model/custom-overlay-ref.model';
 
+/**
+ * Servicio para manejar modales personalizados en la aplicación.
+ */
 @Injectable({ providedIn: 'root' })
 export class OverlayService {
   private overlay: Overlay = inject(Overlay);
   private injector: Injector = inject(Injector);
 
+  /**
+   * Método para abrir un componente personalizado en un modal.
+   * @param content Componente a mostrar en el overlay.
+   * @param data Datos a pasar al componente del overlay.
+   * @param panelCssClasses Clases CSS adicionales para el panel del overlay (opcional).
+   * @param closeOnBackdropCLick Indica si el overlay se cierra al hacer clic en el fondo (opcional, por defecto true).
+   * @returns Devuelve una referencia personalizada del overlay.
+   */
   open<R = any>(
     content: Type<any>,
     data: Modal,

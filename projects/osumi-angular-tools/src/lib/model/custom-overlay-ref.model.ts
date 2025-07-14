@@ -3,7 +3,14 @@ import { Type } from '@angular/core';
 import { Subject } from 'rxjs';
 import { OverlayCloseEvent } from '../interfaces/modals.interface';
 
-// R = Response Data Type, T = Data passed to Modal Type
+/**
+ * Clase que representa una referencia a un overlay personalizado.
+ *
+ * Permite cerrar el overlay y notificar a los suscriptores sobre el evento de cierre.
+ *
+ * @template R Tipo de dato de respuesta.
+ * @template T Tipo de dato pasado al modal.
+ */
 export class CustomOverlayRef<R = any, T = any> {
   afterClosed$ = new Subject<OverlayCloseEvent<R | null>>();
 

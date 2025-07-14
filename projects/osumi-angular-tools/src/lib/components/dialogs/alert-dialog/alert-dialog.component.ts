@@ -7,6 +7,13 @@ import {
   MatDialogTitle,
 } from '@angular/material/dialog';
 
+/**
+ * Componente para mostrar un diálogo de alerta.
+ *
+ * Permite mostrar un mensaje de alerta con un título, contenido y un botón de confirmación personalizables.
+ *
+ * @returns Devuelve mediante un observable la notificación de cierre del diálogo.
+ */
 @Component({
   selector: 'oat-alert-dialog',
   templateUrl: './alert-dialog.component.html',

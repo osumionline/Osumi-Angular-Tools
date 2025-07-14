@@ -14,6 +14,13 @@ import {
   MatDialogTitle,
 } from '@angular/material/dialog';
 
+/**
+ * Componente para mostrar un diálogo de confirmación.
+ *
+ * Permite mostrar un mensaje de confirmación con un título, contenido y botones de confirmación y cancelar personalizables.
+ *
+ * @returns Devuelve mediante un observable la notificación de cierre del diálogo indicando si se ha confirmado o cancelado la acción.
+ */
 @Component({
   selector: 'oat-confirm-dialog',
   templateUrl: './confirm-dialog.component.html',

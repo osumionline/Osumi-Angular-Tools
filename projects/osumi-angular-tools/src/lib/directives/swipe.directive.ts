@@ -9,6 +9,13 @@ import {
 } from '@angular/core';
 import { SwipeData } from '../interfaces/swipe.interface';
 
+/**
+ * Directiva para detectar gestos de deslizamiento (swipe) en un elemento.
+ *
+ * Permite detectar deslizamientos tanto en dispositivos táctiles como con ratón.
+ *
+ * @returns Devuelve un observable que emite los datos del deslizamiento (deltaX y deltaY).
+ */
 @Directive({
   selector: '[oatSwipe]',
   standalone: true,

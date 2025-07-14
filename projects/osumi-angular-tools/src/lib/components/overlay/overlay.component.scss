@@ -8,7 +8,7 @@
 
 .modal {
 	border-radius: 6px;
-	box-shadow: 4px 4px 5px 0px var(--modals-bg-color);
+	box-shadow: 4px 4px 5px 0px var(--oat-modals-bg-color);
 
 	&__header {
 		border-top-left-radius: 6px;
@@ -19,39 +19,39 @@
 		padding: 0 20px;
 		height: 48px;
 		font-size: 24px;
-		background-color: var(--modals-main-color);
+		background-color: var(--oat-modals-main-color);
 
 		.title {
-			color: var(--modals-color-white);
+			color: var(--oat-modals-color-white);
 		}
 
 		.btn-close {
 			cursor: pointer;
-			color: var(--modals-color-white);
+			color: var(--oat-modals-color-white);
 		}
 
 		&--blue {
-			background-color: var(--modals-color-blue);
+			background-color: var(--oat-modals-color-blue);
 		}
 
 		&--yellow {
-			background-color: var(--modals-color-yellow);
-			color: var(--modals-color-black);
+			background-color: var(--oat-modals-color-yellow);
+			color: var(--oat-modals-color-black);
 
 			&>.btn-close {
-				color: var(--modals-color-black);
+				color: var(--oat-modals-color-black);
 			}
 		}
 
 		&--red {
-			background-color: var(--modals-color-red);
+			background-color: var(--oat-modals-color-red);
 		}
 	}
 
 	&__content {
 		padding: 20px;
 		border-bottom-left-radius: 6px;
-		background-color: var(--modals-color-white);
+		background-color: var(--oat-modals-color-white);
 		border-bottom-right-radius: 6px;
 		height: calc(100% - 48px);
 		overflow-y: auto;

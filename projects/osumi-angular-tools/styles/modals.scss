@@ -1,15 +1,15 @@
 :root {
-    --modals-bg-color: rgba(0, 0, 0, 0.6);
-    --main-color: #3f51b5;
-    --modals-color-blue: #3f51b5;
-    --modals-color-yellow: #ffd82c;
-    --modals-color-black: #000;
-    --modals-color-red: #ff3333;
-    --modals-color-white: #fff;
+    --oat-modals-bg-color: rgba(0, 0, 0, 0.6);
+    --oat-modals-main-color: #3f51b5;
+    --oat-modals-color-blue: #3f51b5;
+    --oat-modals-color-yellow: #ffd82c;
+    --oat-modals-color-black: #000;
+    --oat-modals-color-red: #ff3333;
+    --oat-modals-color-white: #fff;
 }
 
 .modals-background {
-    background-color: var(--modals-bg-color);
+    background-color: var(--oat-modals-bg-color);
 }
 
 .modals-panel {
