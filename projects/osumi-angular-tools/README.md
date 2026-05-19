@@ -17,7 +17,7 @@ NOTA: Los diálogos incluyen una serie de estilos por defecto. Para poder usarlo
 "styles": [
   "@angular/material/prebuilt-themes/azure-blue.css",
   "src/styles.scss",
-  "@osumi/angular-tools/lib/styles/dialogs.scss"
+  "@osumi/angular-tools/styles/dialogs.scss"
 ],
 ```
 
@@ -30,19 +30,29 @@ Estos estilos por defecto luego se pueden sobrescribir usando variables CSS:
 }
 ```
 
+Los dos últimos parámetros opcionales de `open` permiten indicar desde qué elemento se abre el modal (`from`) y la duración de la animación en milisegundos (`animationDuration`).
+
 **alert**
 
 Muestra un diálogo con un título (`title`) y un texto (`content`) personalizado. También permite personalizar el texto del botón "Continuar" (`ok`).
 
 ```typescript
 dialog: DialogService = inject(DialogService);
+button: Signal<ElementRef> = viewChild.required('button');
 
 this.dialog.alert({
-  title: "Datos guardados",
-  content: 'Los datos del cliente "' + this.selectedClient.nombreApellidos + '" han sido correctamente guardados.',
-  ok: "Continuar",
+  title: 'Datos guardados',
+  content:
+    'Los datos del cliente "' +
+    this.selectedClient.nombreApellidos +
+    '" han sido correctamente guardados.',
+  ok: 'Continuar',
+  from: this.button().nativeElement,
+  animationDuration: 350,
 });
 ```
+
+El campo opcional `from` permite indicar desde qué elemento se abre el diálogo. Si se informa, el diálogo se anima desde ese elemento al abrirse y vuelve al mismo punto al cerrarse. También se puede usar `animationDuration` para indicar la duración de la animación en milisegundos.
 
 **confirm**
 
@@ -53,10 +63,11 @@ dialog: DialogService = inject(DialogService);
 
 this.dialog
   .confirm({
-    title: "Confirmar",
-    content: '¿Estás seguro de querer borrar el cliente "' + this.selectedClient.nombreApellidos + '"?',
-    ok: "Continuar",
-    cancel: "Cancelar",
+    title: 'Confirmar',
+    content:
+      '¿Estás seguro de querer borrar el cliente "' + this.selectedClient.nombreApellidos + '"?',
+    ok: 'Continuar',
+    cancel: 'Cancelar',
   })
   .subscribe((result) => {
     if (result === true) {
@@ -74,11 +85,11 @@ dialog: DialogService = inject(DialogService);
 
 this.dialog
   .form({
-    title: "Introducir email",
-    content: "Introduce el email del cliente",
-    ok: "Continuar",
-    cancel: "Cancelar",
-    fields: [{ title: "Email", type: "email", value: null }],
+    title: 'Introducir email',
+    content: 'Introduce el email del cliente',
+    ok: 'Continuar',
+    cancel: 'Cancelar',
+    fields: [{ title: 'Email', type: 'email', value: null }],
   })
   .subscribe((result: DialogOptions): void => {
     if (result !== undefined) {
@@ -98,19 +109,27 @@ export interface BuscadorModal extends Modal {
 }
 
 os: OverlayService = inject(OverlayService);
+button: Signal<ElementRef> = viewChild.required('button');
 
 const modalBuscadorData: BuscadorModal = {
-  modalTitle: "Buscador",
-  modalColor: "blue",
-  css: "modal-wide",
+  modalTitle: 'Buscador',
+  modalColor: 'blue',
+  css: 'modal-wide',
   key: ev.key,
 };
-const dialog = this.os.open(BuscadorModalComponent, modalBuscadorData); // BuscadorModalComponent sería el componente a mostrar en el modal
+const dialog = this.os.open(
+  BuscadorModalComponent,
+  modalBuscadorData,
+  [],
+  true,
+  this.button().nativeElement,
+  350
+); // BuscadorModalComponent sería el componente a mostrar en el modal
 dialog.afterClosed$.subscribe((data): void => {
   if (data.data !== null) {
     console.log(data.data); // Resultado obtenido del modal
   } else {
-    console.log("El modal se ha cerrado sin devolver datos.");
+    console.log('El modal se ha cerrado sin devolver datos.');
   }
 });
 

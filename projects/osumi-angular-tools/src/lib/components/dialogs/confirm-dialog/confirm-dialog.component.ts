@@ -42,4 +42,12 @@ export class ConfirmDialogComponent {
   public warn: WritableSignal<boolean> = signal<boolean>(false);
   public ok: WritableSignal<string> = signal<string>('Continuar');
   public cancel: WritableSignal<string> = signal<string>('Cancelar');
+
+  public closeDialog: (result: boolean) => void = (result: boolean): void => {
+    this.dialogRef.close(result);
+  };
+
+  close(result: boolean): void {
+    this.closeDialog(result);
+  }
 }

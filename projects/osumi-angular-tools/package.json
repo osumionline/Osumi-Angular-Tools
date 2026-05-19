@@ -1,6 +1,6 @@
 {
   "name": "@osumi/angular-tools",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Tools to be used on Angular projects.",
   "author": "Iñigo Gorosabel",
   "license": "MIT",
@@ -31,5 +31,27 @@
   "schematics": "./schematics/collection.json",
   "ng-update": {
     "migrations": "./schematics/migrations/migrations.json"
+  },
+  "exports": {
+    "./styles/dialogs.scss": {
+      "sass": "./styles/dialogs.scss",
+      "style": "./styles/dialogs.scss",
+      "default": "./styles/dialogs.scss"
+    },
+    "./styles/modals.scss": {
+      "sass": "./styles/modals.scss",
+      "style": "./styles/modals.scss",
+      "default": "./styles/modals.scss"
+    },
+    "./lib/styles/dialogs.scss": {
+      "sass": "./styles/dialogs.scss",
+      "style": "./styles/dialogs.scss",
+      "default": "./styles/dialogs.scss"
+    },
+    "./lib/styles/modals.scss": {
+      "sass": "./styles/modals.scss",
+      "style": "./styles/modals.scss",
+      "default": "./styles/modals.scss"
+    }
   }
 }

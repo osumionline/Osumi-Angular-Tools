@@ -19,13 +19,17 @@ export class OverlayService {
    * @param data Datos a pasar al componente del overlay.
    * @param panelCssClasses Clases CSS adicionales para el panel del overlay (opcional).
    * @param closeOnBackdropCLick Indica si el overlay se cierra al hacer clic en el fondo (opcional, por defecto true).
+   * @param from Elemento desde el que se anima la apertura y cierre del overlay (opcional).
+   * @param animationDuration Duración de la animación en milisegundos (opcional).
    * @returns Devuelve una referencia personalizada del overlay.
    */
-  open<R = any>(
-    content: Type<any>,
+  open<R = unknown>(
+    content: Type<unknown>,
     data: Modal,
     panelCssClasses: string[] = [],
-    closeOnBackdropCLick: boolean = true
+    closeOnBackdropCLick: boolean = true,
+    from?: HTMLElement,
+    animationDuration?: number
   ): CustomOverlayRef<R> {
     const _panelCssClasses: string[] = ['modals-panel'].concat(panelCssClasses);
     const config = new OverlayConfig({
@@ -38,11 +42,13 @@ export class OverlayService {
 
     const overlayRef = this.overlay.create(config);
 
-    const customOverlayRef = new CustomOverlayRef(
+    const customOverlayRef = new CustomOverlayRef<R, Modal>(
       overlayRef,
       content,
       data,
-      closeOnBackdropCLick
+      closeOnBackdropCLick,
+      from,
+      animationDuration
     );
     const injector = this.createInjector(customOverlayRef, this.injector);
     overlayRef.attach(new ComponentPortal(OverlayComponent, null, injector));
@@ -50,7 +56,10 @@ export class OverlayService {
     return customOverlayRef;
   }
 
-  private createInjector(ref: CustomOverlayRef, inj: Injector): Injector {
+  private createInjector<R>(
+    ref: CustomOverlayRef<R, Modal>,
+    inj: Injector
+  ): Injector {
     return Injector.create({
       providers: [{ provide: CustomOverlayRef, useValue: ref }],
       parent: inj,

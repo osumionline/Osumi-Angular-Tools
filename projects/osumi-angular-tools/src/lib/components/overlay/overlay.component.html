@@ -1,4 +1,5 @@
-<div [class]="'modal ' + (inputData.css ? inputData.css : '')">
+<div #modal
+	 [class]="'modal ' + (inputData.css ? inputData.css : '')">
 	<div [class]="'modal__header modal__header--' + inputData.modalColor">
 		<div class="title">{{ inputData.modalTitle }}</div>
 		@if (!inputData.hideCloseBtn) {

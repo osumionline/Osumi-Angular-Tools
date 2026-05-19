@@ -20,10 +20,10 @@
 	 align="end">
 	<button type="button"
 			mat-button
-			(click)="dialogRef.close()">{{ cancel() }}</button>
+			(click)="close()">{{ cancel() }}</button>
 	<button type="button"
 			mat-flat-button
 			color="primary"
-			[mat-dialog-close]="fields()"
-			[disabled]="!isFormValid()">{{ ok() }}</button>
+			[disabled]="!isFormValid()"
+			(click)="close(fields())">{{ ok() }}</button>
 </div>

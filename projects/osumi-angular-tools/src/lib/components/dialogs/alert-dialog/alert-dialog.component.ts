@@ -25,4 +25,12 @@ export class AlertDialogComponent {
   public title: WritableSignal<string> = signal<string>('');
   public content: WritableSignal<string> = signal<string>('');
   public ok: WritableSignal<string> = signal<string>('Continuar');
+
+  public closeDialog: (result: boolean) => void = (result: boolean): void => {
+    this.dialogRef.close(result);
+  };
+
+  close(result: boolean): void {
+    this.closeDialog(result);
+  }
 }

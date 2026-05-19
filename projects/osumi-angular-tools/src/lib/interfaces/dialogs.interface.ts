@@ -23,4 +23,6 @@ export interface DialogOptions {
   fields?: DialogField[] | undefined;
   ok?: string | undefined;
   cancel?: string | undefined;
+  from?: HTMLElement | undefined;
+  animationDuration?: number | undefined;
 }

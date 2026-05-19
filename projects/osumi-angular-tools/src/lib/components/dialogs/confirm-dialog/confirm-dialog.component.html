@@ -6,9 +6,9 @@
 	 align="end">
 	<button type="button"
 			mat-button
-			(click)="dialogRef.close(false)">{{ cancel() }}</button>
+			(click)="close(false)">{{ cancel() }}</button>
 	<button type="button"
 			mat-flat-button
 			[ngClass]="{'dialogs-warn': warn()}"
-			(click)="dialogRef.close(true)">{{ ok() }}</button>
+			(click)="close(true)">{{ ok() }}</button>
 </div>

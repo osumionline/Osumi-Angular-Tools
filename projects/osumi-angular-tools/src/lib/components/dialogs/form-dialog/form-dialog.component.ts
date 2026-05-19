@@ -9,7 +9,6 @@ import { FormsModule } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
 import {
   MatDialogActions,
-  MatDialogClose,
   MatDialogContent,
   MatDialogRef,
   MatDialogTitle,
@@ -34,7 +33,6 @@ import { DialogField } from '../../../interfaces/dialogs.interface';
     MatDialogTitle,
     MatDialogContent,
     MatDialogActions,
-    MatDialogClose,
     MatFormField,
     MatLabel,
     MatInput,
@@ -52,6 +50,12 @@ export class FormDialogComponent {
   public ok: WritableSignal<string> = signal<string>('Continuar');
   public cancel: WritableSignal<string> = signal<string>('Cancelar');
 
+  public closeDialog: (result?: DialogField[]) => void = (
+    result?: DialogField[]
+  ): void => {
+    this.dialogRef.close(result);
+  };
+
   /**
    * Método para validar el formulario.
    * Comprueba si todos los campos requeridos tienen un valor no vacío.
@@ -63,5 +67,9 @@ export class FormDialogComponent {
         !field.required || Boolean(field.value && field.value.trim() !== '')
       );
     });
+  }
+
+  close(result?: DialogField[]): void {
+    this.closeDialog(result);
   }
 }
