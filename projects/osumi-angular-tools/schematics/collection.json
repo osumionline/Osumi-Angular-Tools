@@ -3,12 +3,12 @@
   "schematics": {
     "ng-add": {
       "description": "Adds Osumi Angular Tools to the project.",
-      "factory": "./ng-add/index#ngAdd",
+      "factory": "./ng-add/index.cjs#ngAdd",
       "schema": "./ng-add/schema.json"
     },
     "ng-update": {
       "description": "Update to the latest version of Osumi Angular Tools.",
-      "factory": "./ng-update/index#ngUpdate",
+      "factory": "./ng-update/index.cjs#ngUpdate",
       "schema": "./ng-update/schema.json"
     }
   }

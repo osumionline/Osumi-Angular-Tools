@@ -1,10 +1,10 @@
 {
   "name": "osumi-angular-tools",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build osumi-angular-tools && tsc -p tsconfig.schematics.json",
+    "build": "ng build osumi-angular-tools && tsc -p tsconfig.schematics.json && node tools/prepare-schematics.cjs",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint"
