@@ -12,5 +12,8 @@
       "input": "schematics",
       "output": "/schematics"
     }
+  ],
+  "allowedNonPeerDependencies": [
+    "@angular-devkit/schematics"
   ]
 }

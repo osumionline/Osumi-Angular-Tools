@@ -75,6 +75,11 @@
       "description": "Animaciones en diálogos",
       "version": "1.4.0",
       "factory": "./noop/index#noop"
+    },
+    "osumi-angular-tools-1-4-1": {
+      "description": "Corrección del empaquetado de migraciones",
+      "version": "1.4.1",
+      "factory": "./noop/index#noop"
     }
   }
 }
