@@ -90,6 +90,11 @@
       "description": "Actualización a Angular 22",
       "version": "1.5.0",
       "factory": "./noop/index.cjs#noop"
+    },
+    "osumi-angular-tools-1-5-1": {
+      "description": "Corrección para ng update",
+      "version": "1.5.1",
+      "factory": "./noop/index.cjs#noop"
     }
   }
 }

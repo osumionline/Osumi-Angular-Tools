@@ -1,6 +1,7 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+    "rootDir": "./projects/osumi-angular-tools/schematics",
     "outDir": "./dist/osumi-angular-tools/schematics",
     "module": "commonjs",
     "target": "ES2020",
