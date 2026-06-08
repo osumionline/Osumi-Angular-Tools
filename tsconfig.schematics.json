@@ -4,7 +4,7 @@
     "outDir": "./dist/osumi-angular-tools/schematics",
     "module": "commonjs",
     "target": "ES2020",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,

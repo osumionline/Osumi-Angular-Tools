@@ -18,7 +18,6 @@ import { SwipeData } from '../interfaces/swipe.interface';
  */
 @Directive({
   selector: '[oatSwipe]',
-  standalone: true,
   host: {
     '(touchstart)': 'onTouchStart($event)',
     '(touchend)': 'onTouchEnd($event)',
@@ -43,22 +42,22 @@ export class SwipeDirective implements OnDestroy {
     this.touchStartListener = this.renderer.listen(
       this.el.nativeElement,
       'touchstart',
-      (event: TouchEvent): void => this.onTouchStart(event)
+      (event: TouchEvent): void => this.onTouchStart(event),
     );
     this.touchEndListener = this.renderer.listen(
       this.el.nativeElement,
       'touchend',
-      (event: TouchEvent): void => this.onTouchEnd(event)
+      (event: TouchEvent): void => this.onTouchEnd(event),
     );
     this.mouseDownListener = this.renderer.listen(
       this.el.nativeElement,
       'mousedown',
-      (event: MouseEvent): void => this.onMouseDown(event)
+      (event: MouseEvent): void => this.onMouseDown(event),
     );
     this.mouseUpListener = this.renderer.listen(
       this.el.nativeElement,
       'mouseup',
-      (event: MouseEvent): void => this.onMouseUp(event)
+      (event: MouseEvent): void => this.onMouseUp(event),
     );
   }
 

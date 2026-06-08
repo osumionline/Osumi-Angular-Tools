@@ -4,13 +4,13 @@
 	@for (field of fields(); track field.title) {
 	<p>
 		<mat-form-field class="dialogs-full-width">
-			<mat-label>{{field.title}}</mat-label>
+			<mat-label>{{ field.title }}</mat-label>
 			<input matInput
 				   [type]="field.type"
 				   [(ngModel)]="field.value"
 				   [required]="field.required || false">
 			@if (field.hint) {
-			<mat-hint>{{field.hint}}</mat-hint>
+			<mat-hint>{{ field.hint }}</mat-hint>
 			}
 		</mat-form-field>
 	</p>

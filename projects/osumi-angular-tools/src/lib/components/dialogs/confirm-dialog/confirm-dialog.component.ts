@@ -1,11 +1,5 @@
 import { NgClass } from '@angular/common';
-import {
-  Component,
-  inject,
-  signal,
-  ViewEncapsulation,
-  WritableSignal,
-} from '@angular/core';
+import { Component, inject, signal, ViewEncapsulation, WritableSignal } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import {
   MatDialogActions,
@@ -25,13 +19,7 @@ import {
   selector: 'oat-confirm-dialog',
   templateUrl: './confirm-dialog.component.html',
   styleUrl: './confirm-dialog.component.scss',
-  imports: [
-    MatDialogTitle,
-    MatDialogContent,
-    MatDialogActions,
-    MatButton,
-    NgClass,
-  ],
+  imports: [MatDialogTitle, MatDialogContent, MatDialogActions, MatButton, NgClass],
   encapsulation: ViewEncapsulation.None,
 })
 export class ConfirmDialogComponent {

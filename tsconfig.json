@@ -4,6 +4,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
+    "rootDir": ".",
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
@@ -16,9 +17,7 @@
     "declaration": false,
     "experimentalDecorators": true,
     "paths": {
-      "osumi-angular-tools": [
-        "./dist/osumi-angular-tools"
-      ]
+      "osumi-angular-tools": ["./dist/osumi-angular-tools"]
     },
     "moduleResolution": "bundler",
     "importHelpers": true,

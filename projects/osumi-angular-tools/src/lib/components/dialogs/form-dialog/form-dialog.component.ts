@@ -1,10 +1,4 @@
-import {
-  Component,
-  inject,
-  signal,
-  ViewEncapsulation,
-  WritableSignal,
-} from '@angular/core';
+import { Component, inject, signal, ViewEncapsulation, WritableSignal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
 import {
@@ -50,9 +44,7 @@ export class FormDialogComponent {
   public ok: WritableSignal<string> = signal<string>('Continuar');
   public cancel: WritableSignal<string> = signal<string>('Cancelar');
 
-  public closeDialog: (result?: DialogField[]) => void = (
-    result?: DialogField[]
-  ): void => {
+  public closeDialog: (result?: DialogField[]) => void = (result?: DialogField[]): void => {
     this.dialogRef.close(result);
   };
 
@@ -63,9 +55,7 @@ export class FormDialogComponent {
    */
   isFormValid(): boolean {
     return this.fields().every((field: DialogField): boolean => {
-      return (
-        !field.required || Boolean(field.value && field.value.trim() !== '')
-      );
+      return !field.required || Boolean(field.value && field.value.trim() !== '');
     });
   }
 

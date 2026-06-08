@@ -24,11 +24,11 @@ export class CustomOverlayRef<R = unknown, T = unknown> {
     public data: T,
     public closeOnBackdropCLick: boolean = true,
     public from?: HTMLElement,
-    public animationDuration?: number
+    public animationDuration?: number,
   ) {
     if (closeOnBackdropCLick) {
       overlay.backdropClick().subscribe({
-        next: () => {
+        next: (): void => {
           void this._close('backdropClick', null);
         },
       });
@@ -43,10 +43,7 @@ export class CustomOverlayRef<R = unknown, T = unknown> {
     this.closeAnimation = closeAnimation;
   }
 
-  private async _close(
-    type: 'backdropClick' | 'close',
-    data: R | null
-  ): Promise<void> {
+  private async _close(type: 'backdropClick' | 'close', data: R | null): Promise<void> {
     if (this.closing) {
       return;
     }

@@ -29,8 +29,7 @@ const DEFAULT_OVERLAY_ANIMATION_DURATION: number = 220;
   imports: [MatIcon, MatIconButton, NgComponentOutlet],
 })
 export class OverlayComponent implements OnInit, AfterViewInit {
-  private customOverlayRef: CustomOverlayRef<unknown, Modal> =
-    inject(CustomOverlayRef);
+  private customOverlayRef: CustomOverlayRef<unknown, Modal> = inject(CustomOverlayRef);
   private renderer: Renderer2 = inject(Renderer2);
   private modal: Signal<ElementRef<HTMLElement>> = viewChild.required('modal');
 
@@ -84,7 +83,7 @@ export class OverlayComponent implements OnInit, AfterViewInit {
       {
         duration: this.getAnimationDuration(),
         easing: 'cubic-bezier(0.2, 0, 0, 1)',
-      }
+      },
     );
   }
 
@@ -113,7 +112,7 @@ export class OverlayComponent implements OnInit, AfterViewInit {
         duration: this.getCloseAnimationDuration(),
         easing: 'cubic-bezier(0.4, 0, 1, 1)',
         fill: 'forwards',
-      }
+      },
     );
 
     return new Promise((resolve: () => void): void => {
@@ -157,12 +156,9 @@ export class OverlayComponent implements OnInit, AfterViewInit {
     const translateX: number = fromCenterX - modalCenterX;
     const translateY: number = fromCenterY - modalCenterY;
     const scale: number = this.clamp(
-      Math.min(
-        fromRect.width / modalRect.width,
-        fromRect.height / modalRect.height
-      ),
+      Math.min(fromRect.width / modalRect.width, fromRect.height / modalRect.height),
       0.12,
-      0.45
+      0.45,
     );
 
     return {
@@ -173,10 +169,9 @@ export class OverlayComponent implements OnInit, AfterViewInit {
 
   private getAnimationDuration(): number {
     return this.clamp(
-      this.customOverlayRef.animationDuration ??
-        DEFAULT_OVERLAY_ANIMATION_DURATION,
+      this.customOverlayRef.animationDuration ?? DEFAULT_OVERLAY_ANIMATION_DURATION,
       0,
-      5000
+      5000,
     );
   }
 
