@@ -95,6 +95,11 @@
       "description": "Corrección para ng update",
       "version": "1.5.1",
       "factory": "./noop/index.cjs#noop"
+    },
+    "osumi-angular-tools-1-5-2": {
+      "description": "Corrección de estilos en modales",
+      "version": "1.5.2",
+      "factory": "./noop/index.cjs#noop"
     }
   }
 }
