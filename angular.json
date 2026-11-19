@@ -9,20 +9,36 @@
       },
       "projectType": "library",
       "root": "projects/osumi-angular-tools",
-      "sourceRoot": "projects/osumi-angular-tools/src",
+      "sourceRoot": "projects/osumi-angular-tools",
       "prefix": "lib",
       "architect": {
         "build": {
-          "builder": "@angular/build:ng-packagr",
+          "builder": "@angular/build:library",
           "options": {
-            "project": "projects/osumi-angular-tools/ng-package.json"
+            "tsConfig": "projects/osumi-angular-tools/tsconfig.lib.json",
+            "outputPath": "dist/osumi-angular-tools",
+            "assets": [
+              "projects/osumi-angular-tools/styles",
+              {
+                "glob": "**/*",
+                "input": "projects/osumi-angular-tools/schematics",
+                "output": "/schematics"
+              }
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "projects/osumi-angular-tools/styles"
+              ]
+            },
+            "allowedNonPeerDependencies": [
+              "@angular-devkit/schematics"
+            ]
           },
           "configurations": {
             "production": {
               "tsConfig": "projects/osumi-angular-tools/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/osumi-angular-tools/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
